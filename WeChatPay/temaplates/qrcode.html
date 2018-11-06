@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>扫码支付</title>
+</head>
+<style>
+    .box {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%);
+        text-align: center;
+    }
+
+    .conten {
+        width: 100%;
+    }
+
+    body {
+        background: #ccc;
+    }
+</style>
+
+<body>
+{% load static %}
+<div class="box">
+    <h2 class="content"><span>扫码支付</span></h2>
+    <!--<h2>扫码支付</h2>-->
+    <img src="{% static qrcode_img %}"><!--显示支付二维码-->
+
+</div>
+</body>
+
+</html>
