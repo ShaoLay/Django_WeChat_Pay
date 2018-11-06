@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.views.static import serve
+
+from WeChatPay.WeChatPay import settings
+from WeChatPay.pay import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url('buy/', views.buy),  # 打开购买页面
+    url('to_pay/', views.wxpay, name='to_pay'),  # 跳转二维码扫描页面
+    url('check_wxpay/', views.check_wxpay),  # 支付结果验签
+    url('static/<str:path>', serve, {'document_root': settings.STATIC_ROOT}),  # 静态文件访问配置
 ]
